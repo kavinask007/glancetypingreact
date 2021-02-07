@@ -10,10 +10,11 @@ class Header extends React.Component {
       highscore: false,
       reset: false,
       options: true,
-      restartcolor: "green",
+      restartcolor: "red",
       difficultyindicator: "Easy",
     };
-    this.props.parentCallback(true);
+
+    this.props.parentCallback(false);
     this.props.parentcallback("easy");
   }
 
