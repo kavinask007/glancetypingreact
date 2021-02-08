@@ -439,7 +439,7 @@ class Failed extends React.Component {
       return (
         <div className="resultspage">
           <Svg />
-          <h1 className="nav-content">Sorry Noob</h1>
+          <h1 className="nav-content">Time Over</h1>
           <button onClick={this.nextclick}>Next</button>
         </div>
       );
@@ -451,7 +451,7 @@ class Failed extends React.Component {
       return (
         <div className="resultspage">
           <Svg />
-          <h1 className="nav-content">Sorry Noob</h1>
+          <h1 className="nav-content">Time Over</h1>
         </div>
       );
     }
