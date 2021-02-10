@@ -16,7 +16,6 @@ class App extends React.Component {
   };
   handlecallback = (childData) => {
     this.setState({ difficulty: childData });
-    console.log(childData);
   };
 
   render() {

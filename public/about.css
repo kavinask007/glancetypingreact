@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 ::-webkit-scrollbar {
   width: 3px;
   background: black;
@@ -254,7 +255,7 @@ footer {
 .wpm {
   height: 80%;
   width: 25%;
-  border-right: 3px solid black;
+  border-right: 3px solid rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -277,7 +278,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 3px solid black;
+  border-right: 3px solid rgb(255, 255, 255);
   overflow: hidden;
   flex-wrap: wrap;
 }

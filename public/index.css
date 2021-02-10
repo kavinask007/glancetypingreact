@@ -3,9 +3,12 @@
   padding: 0;
   background: rgba(0, 0, 0, 0.781);
 }
-::selection {
-  color: none;
-  background: none;
+body {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 header {
   position: absolute;
@@ -115,6 +118,9 @@ main {
   transform: scale(1.1);
   transition: all ease 0.5s;
 }
+.optionsdiv h1 {
+  background: rgb(20, 20, 20);
+}
 .optionsdiv {
   padding: 10px;
   color: white;
@@ -124,8 +130,14 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  background: black;
+  background: rgb(20, 20, 20);
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top-right-radius: 1%;
+  border-bottom-right-radius: 1%;
 }
 .close {
   position: absolute;
@@ -134,7 +146,7 @@ main {
   width: 40px;
   height: 40px;
   font-size: 30px;
-  background: black;
+  background: rgb(20, 20, 20);
   font-family: "poppins";
   font-weight: bolder;
 }
@@ -142,7 +154,15 @@ main {
   font-family: "poppins";
 }
 
-@media only screen and (max-width: 600px) {
+.caret {
+  position: absolute;
+  width: 4px;
+  height: 45px;
+  background-color: white;
+  z-index: 6;
+  transition: all ease 0.2s;
+}
+@media only screen and (max-width: 700px) {
   .letter {
     font-size: 18px;
     width: 20px;
@@ -156,12 +176,12 @@ main {
   .typingarea {
     width: 95%;
   }
-}
-.caret {
-  position: absolute;
-  width: 4px;
-  height: 45px;
-  background-color: white;
-  z-index: 6;
-  transition: all ease 0.2s;
+  .optionsdiv {
+    width: 100%;
+    height: 100vh;
+  }
+  .close {
+    top: 10px;
+    right: 10px;
+  }
 }

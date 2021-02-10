@@ -55,8 +55,7 @@ class Typing extends React.Component {
 class Timer extends React.Component {
   constructor(props) {
     super(props);
-    this.finalsentence =
-      proverbs[Math.round(Math.random() * proverbs.length + 1)];
+    this.finalsentence = proverbs[Math.round(Math.random() * proverbs.length)];
     this.handlekeypress = this.handlekeypress.bind(this);
     this.starteventlistener = this.starteventlistener.bind(this);
     this.state = {
@@ -106,12 +105,14 @@ class Timer extends React.Component {
       this.letterarray[this.num].classList.remove("wrong");
     } else if (this.letterarray[this.num].textContent === e.key) {
       this.totalkeystrokes += 1;
-      document.getElementsByClassName("caret")[0].style.left =
-        Math.round(this.letterarray[this.num].getClientRects()[0].x) +
-        35 +
-        "px";
-      document.getElementsByClassName("caret")[0].style.top =
-        Math.round(this.letterarray[this.num].getClientRects()[0].y) + "px";
+      if (this.num < this.letterarray.length - 1) {
+        document.getElementsByClassName("caret")[0].style.left =
+          Math.round(this.letterarray[this.num + 1].getClientRects()[0].x) +
+          "px";
+        document.getElementsByClassName("caret")[0].style.top =
+          Math.round(this.letterarray[this.num + 1].getClientRects()[0].y) +
+          "px";
+      }
       this.letterarray[this.num].classList.add("active");
       this.letterarray[this.num].style.opacity = 1;
       this.letterarray[this.num].style.color = "white";
@@ -122,13 +123,14 @@ class Timer extends React.Component {
       }
     } else if (e.key !== this.letterarray[this.num].textContent) {
       this.totalkeystrokes += 1;
-
-      document.getElementsByClassName("caret")[0].style.left =
-        Math.round(this.letterarray[this.num].getClientRects()[0].x) +
-        35 +
-        "px";
-      document.getElementsByClassName("caret")[0].style.top =
-        Math.round(this.letterarray[this.num].getClientRects()[0].y) + "px";
+      if (this.num < this.letterarray.length - 1) {
+        document.getElementsByClassName("caret")[0].style.left =
+          Math.round(this.letterarray[this.num + 1].getClientRects()[0].x) +
+          "px";
+        document.getElementsByClassName("caret")[0].style.top =
+          Math.round(this.letterarray[this.num + 1].getClientRects()[0].y) +
+          "px";
+      }
       this.letterarray[this.num].style.opacity = 1;
       if (this.letterarray[this.num].textContent === " ") {
         this.letterarray[this.num].style.background = "red";
@@ -364,7 +366,7 @@ class Result extends React.Component {
       return (
         <div className="resultspage">
           <h1>
-            wpm<h1>{this.netwpm}</h1>
+            Wpm<h1>{this.netwpm}</h1>
           </h1>
           <h1>
             Accuracy<h1>{this.props.accuracy}%</h1>
